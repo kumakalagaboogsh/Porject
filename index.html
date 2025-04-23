@@ -80,23 +80,22 @@
       transform: scale(1.1);
     }
 
-/* Glowing border effect for profile picture */
-.profile-pic {
-  width: 350px;
-  height: 350px;
-  border: 8px solid #000000;
-  border-radius: 50%;
-  display: block;
-  margin: 20px auto;
-  object-fit: cover;
-  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-}
+    .profile-pic {
+      width: 350px;
+      height: 350px;
+      border: 8px solid #000000;
+      border-radius: 50%;
+      display: block;
+      margin: 20px auto;
+      object-fit: cover;
+      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    }
 
-.profile-pic:hover {
-  transform: scale(1.1); /* Slight zoom effect */
-  border-color: #ffcc00; /* Change border color */
-  box-shadow: 0 0 15px #ffcc00, 0 0 30px #ffcc00, 0 0 45px #ffcc00; /* Glowing effect */
-}
+    .profile-pic:hover {
+      transform: scale(1.1);
+      border-color: #ffcc00;
+      box-shadow: 0 0 15px #ffcc00, 0 0 30px #ffcc00, 0 0 45px #ffcc00;
+    }
 
     footer {
       background-color: #222;
@@ -132,44 +131,75 @@
     }
 
     .btn:hover {
-  background-color: #ffcc00;
-  color: #e60012;
-  transform: scale(1.1);
-  box-shadow: 0 0 15px #ffcc00;
-}
+      background-color: #ffcc00;
+      color: #e60012;
+      transform: scale(1.1);
+      box-shadow: 0 0 15px #ffcc00;
+    }
 
     .about-section:hover {
-  transform: scale(1.02);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+      transform: scale(1.02);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
 
-/* Neon border and hover effects for social media icons */
-.social-icon {
-  display: inline-block;
-  padding: 15px;
-  border: 3px solid transparent;
-  border-radius: 60%; /* Makes the border circular */
-  transition: all 0.3s ease;
-  position: relative;
-}
+    .social-icon {
+      display: inline-block;
+      padding: 15px;
+      border: 3px solid transparent;
+      border-radius: 60%;
+      transition: all 0.3s ease;
+      position: relative;
+    }
 
-.social-icon i {
-  font-size: 3rem;
-  color: #ffcc00;
-  transition: color 0.3s ease;
-}
+    .social-icon i {
+      font-size: 3rem;
+      color: #ffcc00;
+      transition: color 0.3s ease;
+    }
 
-.social-icon:hover {
-  border-color: #ffcc00; /* Neon border color */
-  box-shadow: 0 0 15px #ffcc00, 0 0 30px #ffcc00, 0 0 45px #ffcc00; /* Neon glow effect */
-  transform: scale(1.2); /* Slight zoom effect */
-}
+    .social-icon:hover {
+      border-color: #ffcc00;
+      box-shadow: 0 0 15px #ffcc00, 0 0 30px #ffcc00, 0 0 45px #ffcc00;
+      transform: scale(1.2);
+    }
 
-.social-icon:hover i {
-  color: #e60012; /* Keeps the icon color white on hover */
-}
+    .social-icon:hover i {
+      color: #e60012;
+    }
 
+    @media (max-width: 768px) {
+      .hero {
+        height: 300px;
+        background-size: cover;
+      }
+
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .profile-pic {
+        width: 200px;
+        height: 200px;
+      }
+
+      .navbar-brand {
+        font-size: 16px;
+      }
+
+      .nav-link {
+        font-size: 14px;
+      }
+
+      .skills, .education, .contact, .about {
+        padding: 20px 10px;
+        margin-top: 20px;
+      }
+    }
     .contact-form input, .contact-form textarea {
       background-color: #222;
       color: white;
@@ -622,8 +652,7 @@
     <a href="https://instagram.com" target="_blank">Instagram</a>.
   </footer>
 
- 
-
+  
   <!-- Bootstrap JS Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
