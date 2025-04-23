@@ -15,6 +15,7 @@
 
   <!-- AOS Animation Library -->
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
@@ -79,21 +80,23 @@
       transform: scale(1.1);
     }
 
-    .profile-pic {
-      width: 350px;
-      height: 350px;
-      border: 8px solid #000000;
-      border-radius: 50%;
-      display: block;
-      margin: 20px auto;
-      object-fit: cover;
-      transition: transform 0.3s ease, border-color 0.3s ease;
-    }
+/* Glowing border effect for profile picture */
+.profile-pic {
+  width: 350px;
+  height: 350px;
+  border: 8px solid #000000;
+  border-radius: 50%;
+  display: block;
+  margin: 20px auto;
+  object-fit: cover;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
 
-    .profile-pic:hover {
-      transform: scale(1.1);
-      border-color: #e60012;
-    }
+.profile-pic:hover {
+  transform: scale(1.1); /* Slight zoom effect */
+  border-color: #ffcc00; /* Change border color */
+  box-shadow: 0 0 15px #ffcc00, 0 0 30px #ffcc00, 0 0 45px #ffcc00; /* Glowing effect */
+}
 
     footer {
       background-color: #222;
@@ -129,8 +132,11 @@
     }
 
     .btn:hover {
-      transform: scale(1.05);
-    }
+  background-color: #ffcc00;
+  color: #e60012;
+  transform: scale(1.1);
+  box-shadow: 0 0 15px #ffcc00;
+}
 
     .about-section:hover {
   transform: scale(1.02);
@@ -138,24 +144,31 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Hover effect for social icons */
-.social-icon img {
-  transition: transform 0.3s ease, border-color 0.3s ease;
+/* Neon border and hover effects for social media icons */
+.social-icon {
+  display: inline-block;
+  padding: 15px;
+  border: 3px solid transparent;
+  border-radius: 60%; /* Makes the border circular */
+  transition: all 0.3s ease;
+  position: relative;
 }
 
-.social-icon img:hover {
-  transform: scale(1.2);
-  border-color: #ffcc00;
+.social-icon i {
+  font-size: 3rem;
+  color: #ffcc00;
+  transition: color 0.3s ease;
 }
 
-    .contact-form {
-      background: rgba(0, 0, 0, 0.6);
-      border-radius: 20px;
-      padding: 40px;
-      margin-top: 40px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-      border: 5px solid #ffcc00;
-    }
+.social-icon:hover {
+  border-color: #ffcc00; /* Neon border color */
+  box-shadow: 0 0 15px #ffcc00, 0 0 30px #ffcc00, 0 0 45px #ffcc00; /* Neon glow effect */
+  transform: scale(1.2); /* Slight zoom effect */
+}
+
+.social-icon:hover i {
+  color: #e60012; /* Keeps the icon color white on hover */
+}
 
     .contact-form input, .contact-form textarea {
       background-color: #222;
@@ -173,12 +186,188 @@
       border: none;
       border-radius: 5px;
     }
+
+    .contact-form button:hover {
+      background-color: #ffcc00;
+      color: #e60012;
+      transform: scale(1.1);
+      box-shadow: 0 0 15px #ffcc00;
+    }
+
+    .card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: #1a1a1a;
+  color: #ffffff;
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.05); /* Slight zoom effect */
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #ffcc00;
+}
+
+.card-text {
+  font-size: 0.9rem;
+  color: #ffffff;
+}
+
+.bi {
+  font-size: 3rem;
+  color: #ffcc00;
+  transition: transform 0.3s ease; /* Smooth scaling for icons */
+}
+
+.card:hover .bi {
+  transform: scale(1.2); /* Slight zoom effect for icons */
+}
+
+  /* Flip Card Container */
+.flip-card {
+  background-color: transparent;
+  perspective: 1000px; /* Perspective for 3D effect */
+  width: 100%;
+  height: 200px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg); /* Flip on hover */
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; /* Hide the back side when not flipped */
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.flip-card-front {
+  background-color: #1a1a1a;
+  color: #e60012;
+}
+
+.flip-card-back {
+  background-color: #ffcc00;
+  color: #1a1a1a;
+  transform: rotateY(180deg); /* Back side is flipped by default */
+}
+
+.card-text{
+  font-size: 1rem;
+  color: #1a1a1a;
+}
+
+.hobbies {
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 20px;
+  padding: 40px 20px;
+  margin-top: 40px;
+  transition: transform 0.3s ease, background 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  border: 5px solid #ffcc00; /* Add border */
+}
+
+.hobbies:hover {
+  transform: scale(1.02);
+}
+
+.hobbies .card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: #1a1a1a;
+  color: #ffffff;
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hobbies .card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+.hobbies .card-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #ffcc00;
+}
+
+.hobbies .card p {
+  font-size: 0.9rem;
+  color: #ffffff;
+}
+
+.hobbies .bi {
+  font-size: 3rem;
+  color: #ffcc00;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.hobbies .card:hover .bi {
+  transform: scale(1.2);
+  color: #e60012;
+}
+
+#musicControl {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #000000;
+  color: #000000;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#musicControl:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+  
   </style>
 </head>
 
 <body class="bg-light">
   <!-- Dark Mode Toggle Button -->
   <button id="darkModeToggle" class="btn btn-dark position-fixed top-0 end-0 m-3">Toggle Dark Mode</button>
+
+  <!-- Background Music -->
+<audio id="backgroundMusic" autoplay loop>
+  <source src="./music/mario.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+  <p>Background music is playing. If you can't hear it, please check your audio settings.</p>
+</audio>
 
   <!-- Header/Navbar -->
   <header class="py-3">
@@ -208,92 +397,197 @@
     </nav>
   </header>
 
-  <div class="hero">
-    <h1 id="heroText"> </h1>
-    <p>Level up your IT skills with me!</p>
-    <a href="#contact" class="btn btn-warning mt-3">Get in Touch</a>
+  <div class="hero" data-aos="fade-up">
+    <h1 id="heroText" data-aos="zoom-in"> </h1>
+    <p data-aos="fade-up" data-aos-delay="200">Level up your IT skills with me!</p>
+    <a href="#contact" class="btn btn-warning mt-3" data-aos="fade-up" data-aos-delay="400">Get in Touch</a>
   </div>
 
 <!-- About Me Section -->
 <div id="about" class="container position-relative about-section" style="background: rgba(0, 0, 0, 0.6); border-radius: 20px; padding: 40px; margin-top: 40px; border: 5px solid #ffcc00;">
-  <div class="row align-items-center">
+  <div class="row align-items-center text-center">
     <h2 class="text-center mt-4">About Me</h2>
-    <div class="col-md-3 text-center mb-3 mb-md-0">
-      <a href="https://www.facebook.com" class="text-decoration-none text-dark">
-        <i class="bi bi-facebook fs-2" style="color: #1877f2;"></i>
+    <!-- Left Social Media Icons -->
+    <div class="col-md-3 d-flex flex-column align-items-center mb-3 mb-md-0">
+      <a href="https://www.facebook.com" class="social-icon mb-3">
+        <i class="bi bi-facebook fs-2"></i>
       </a>
-      <a href="https://twitter.com" class="text-decoration-none text-dark">
-        <i class="bi bi-twitter fs-2" style="color: #1DA1F2;"></i>
+      <a href="https://twitter.com" class="social-icon">
+        <i class="bi bi-twitter fs-2"></i>
       </a>
     </div>
+
+    <!-- Profile Picture and Name -->
     <div class="col-md-6 text-center mb-3 mb-md-0">
       <img src="./images/akumq.jpg" class="profile-pic img-fluid" alt="Profile Picture" data-aos="fade-up" data-aos-duration="1000">
       <h2 id="nameText" class="mt-3"></h2> <!-- Name with typewriter effect -->
     </div>
-    <div class="col-md-3 text-center">
-      <a href="https://www.instagram.com" class="text-decoration-none text-dark">
-        <i class="bi bi-instagram fs-2" style="color: #E4405F;"></i>
+
+    <!-- Right Social Media Icons -->
+    <div class="col-md-3 d-flex flex-column align-items-center">
+      <a href="https://www.instagram.com" class="social-icon mb-3">
+        <i class="bi bi-instagram fs-2"></i>
       </a>
-      <a href="https://github.com" class="text-decoration-none text-dark">
-        <i class="bi bi-github fs-2" style="color: #333;"></i>
+      <a href="https://github.com" class="social-icon">
+        <i class="bi bi-github fs-2"></i>
       </a>
     </div>
   </div>
+
+  <!-- About Me Text -->
   <p class="text-center mt-3">
     I'm an aspiring IT professional and digital problem-solver. Just like Mario levels up through challenges, I thrive in learning new skills and turning complex tech into simple solutions.
   </p>
 </div>
 
-  <!-- Skills Section -->
-  <div id="skills" class="skills container">
-    <h2 class="text-center mb-4">Skills</h2>
-    <div class="row text-center">
-      <div class="col-md-4 mb-4">
-        <h5><img src="https://img.icons8.com/color/48/000000/code.png" alt="Web Development Icon" style="width: 24px;"> Web Development</h5>
-        <p>Proficient in creating responsive and dynamic websites using modern frameworks.</p>
-        <div class="progress" style="height: 20px;">
-          <div class="progress-bar bg-warning" role="progressbar" style="width: 85%;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">85%</div>
+<!-- Skills Section -->
+<div id="skills" class="skills container mt-5">
+  <h2 class="text-center mb-4">Skills</h2>
+  <div class="row">
+    <!-- Card 1 -->
+    <div class="col-md-4 mb-4">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <i class="bi bi-code-slash fs-1 text-warning mb-3"></i>
+            <h5 class="card-title">Web Development</h5>
+          </div>
+          <div class="flip-card-back">
+            <p>Proficient in creating responsive and dynamic websites using modern frameworks.</p>
+          </div>
         </div>
       </div>
-      <div class="col-md-4 mb-4">
-        <h5><img src="https://img.icons8.com/color/48/000000/network.png" alt="Networking Icon" style="width: 24px;"> Networking</h5>
-        <p>Experienced in configuring and troubleshooting LAN/WAN and network security.</p>
-        <div class="progress" style="height: 20px;">
-          <div class="progress-bar bg-warning" role="progressbar" style="width: 75%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">75%</div>
+    </div>
+    <!-- Card 2 -->
+    <div class="col-md-4 mb-4">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <i class="bi bi-diagram-3 fs-1 text-warning mb-3"></i>
+            <h5 class="card-title">Networking</h5>
+          </div>
+          <div class="flip-card-back">
+            <p>Experienced in configuring and troubleshooting LAN/WAN and network security.</p>
+          </div>
         </div>
       </div>
-      <div class="col-md-4 mb-4">
-        <h5><img src="https://img.icons8.com/color/48/000000/idea.png" alt="Problem Solving Icon" style="width: 24px;"> Problem Solving</h5>
-        <p>Skilled in debugging, troubleshooting, and optimizing code for efficiency.</p>
-        <div class="progress" style="height: 20px;">
-          <div class="progress-bar bg-warning" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">90%</div>
+    </div>
+    <!-- Card 3 -->
+    <div class="col-md-4 mb-4">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <i class="bi bi-lightbulb fs-1 text-warning mb-3"></i>
+            <h5 class="card-title">Problem Solving</h5>
+          </div>
+          <div class="flip-card-back">
+            <p>Skilled in debugging, troubleshooting, and optimizing code for efficiency.</p>
+          </div>
         </div>
       </div>
     </div>
   </div>
+</div>
 
-  <!-- Education Section -->
-  <div id="timeline" class="education container">
-    <h2>Education</h2>
-    <ul class="list-unstyled">
-      <li>
-        <h5>Bachelor of Science in Information Technology</h5>
-        <p>National University Lipa, 2023 - Present</p>
-      </li>
-      <li>
-        <h5>Senior High School</h5>
-        <p>Batangas College of Arts and Sciences Inc., 2021 - 2023</p>
-      </li>
-      <li>
-        <h5>High School</h5>
-        <p>Batangas College of Arts and Sciences Inc., 2017 - 2021</p>
-      </li>
-      <li>
-        <h5>Elementary School</h5>
-        <p>Bagongpook Elementary School, 2012 - 2017</p>
-      </li>
-    </ul>
+<!-- Education Section -->
+<div id="timeline" class="education container mt-5">
+  <h2 class="text-center mb-4">Education</h2>
+  <div class="row">
+    <!-- Card 1 -->
+    <div class="col-md-6 col-lg-3 mb-4">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <i class="bi bi-mortarboard fs-1 text-warning mb-3"></i>
+            <h5 class="card-title">College</h5>
+          </div>
+          <div class="flip-card-back">
+            <p class="card-text">National University Lipa, 2023 - Present</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 2 -->
+    <div class="col-md-6 col-lg-3 mb-4">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <i class="bi bi-book fs-1 text-warning mb-3"></i>
+            <h5 class="card-title">Senior High School</h5>
+          </div>
+          <div class="flip-card-back">
+            <p class="card-text">Batangas College of Arts and Sciences Inc., 2021 - 2023</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 3 -->
+    <div class="col-md-6 col-lg-3 mb-4">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <i class="bi bi-journal fs-1 text-warning mb-3"></i>
+            <h5 class="card-title">High School</h5>
+          </div>
+          <div class="flip-card-back">
+            <p class="card-text">Batangas College of Arts and Sciences Inc., 2017 - 2021</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 4 -->
+    <div class="col-md-6 col-lg-3 mb-4">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <i class="bi bi-pencil fs-1 text-warning mb-3"></i>
+            <h5 class="card-title">Elementary School</h5>
+          </div>
+          <div class="flip-card-back">
+            <p class="card-text">Bagongpook Elementary School,2012-2017</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+</div>
+
+<!-- Hobby Section -->
+<div id="hobbies" class="hobbies container mt-5">
+  <h2 class="text-center mb-4">Hobbies</h2>
+  <div class="row text-center">
+    <!-- Hobby 1 -->
+    <div class="col-md-4 mb-4">
+      <div class="card h-100 text-center">
+        <div class="card-body">
+          <i class="bi bi-controller fs-1 text-warning mb-3"></i>
+          <h5 class="card-title">Gaming</h5>
+          <p>Enjoy playing video games to relax and improve strategic thinking.</p>
+        </div>
+      </div>
+    </div>
+    <!-- Hobby 2 -->
+    <div class="col-md-4 mb-4">
+      <div class="card h-100 text-center">
+        <div class="card-body">
+          <i class="bi bi-music-note-beamed fs-1 text-warning mb-3"></i>
+          <h5 class="card-title">Music</h5>
+          <p>Love listening to music and playing instruments like guitar and piano.</p>
+        </div>
+      </div>
+    </div>
+    <!-- Hobby 3 -->
+    <div class="col-md-4 mb-4">
+      <div class="card h-100 text-center">
+        <div class="card-body">
+          <i class="bi bi-camera fs-1 text-warning mb-3"></i>
+          <h5 class="card-title">Photography</h5>
+          <p>Passionate about capturing moments and exploring creative photography.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
   <!-- Contact Section -->
   <div id="contact" class="contact container">
@@ -323,6 +617,8 @@
     <a href="https://instagram.com" target="_blank">Instagram</a>.
   </footer>
 
+ 
+
   <!-- Bootstrap JS Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
@@ -332,9 +628,17 @@
     AOS.init();
 
     const toggle = document.getElementById('darkModeToggle');
-    toggle.addEventListener('click', () => {
-      document.body.classList.toggle('dark-mode');
-    });
+toggle.addEventListener('click', () => {
+  document.body.classList.toggle('dark-mode');
+  document.querySelector('header').classList.toggle('dark-mode');
+  document.querySelectorAll('.skills, .education, .contact, .about').forEach(section => {
+    section.classList.toggle('dark-mode');
+  });
+  document.querySelector('footer').classList.toggle('dark-mode');
+  document.querySelectorAll('.contact-form input, .contact-form textarea, .contact-form button').forEach(element => {
+    element.classList.toggle('dark-mode');
+  });
+});
 
     function typeWriterEffect(elementId, text, speed = 100, delay = 1000) {
       const element = document.getElementById(elementId);
@@ -356,13 +660,46 @@
       type();
     }
 
-    // Apply Typewriter Effect to Hero Section
+   
     typeWriterEffect('heroText', 'Welcome to Ejay\'s Website', 100);
 
-    // Apply Typewriter Effect to Name in About Section
+    
     typeWriterEffect('nameText', 'Ejay Dimayuga', 150);
 
+    const customCursor = document.getElementById('customCursor');
 
+document.addEventListener('mousemove', (e) => {
+  customCursor.style.top = `${e.clientY}px`;
+  customCursor.style.left = `${e.clientX}px`;
+});
+
+document.addEventListener('mousedown', () => {
+  customCursor.style.transform = 'scale(0.8)';
+});
+
+document.addEventListener('mouseup', () => {
+  customCursor.style.transform = 'scale(1)';
+});
+
+// Music Control
+const music = document.getElementById('backgroundMusic');
+const musicControl = document.createElement('button');
+musicControl.id = 'musicControl';
+musicControl.innerHTML = '<i class="bi bi-pause-fill"></i>'; // Pause icon
+document.body.appendChild(musicControl);
+
+let isPlaying = true;
+
+musicControl.addEventListener('click', () => {
+  if (isPlaying) {
+    music.pause();
+    musicControl.innerHTML = '<i class="bi bi-play-fill"></i>'; // Play icon
+  } else {
+    music.play();
+    musicControl.innerHTML = '<i class="bi bi-pause-fill"></i>'; // Pause icon
+  }
+  isPlaying = !isPlaying;
+});
 
     // Smooth Scrolling
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -373,6 +710,11 @@
         });
       });
     });
+
+    AOS.init({
+  duration: 1000, // Animation duration in milliseconds
+  once: true, // Whether animation should happen only once
+});
 
   </script>
 </body>
