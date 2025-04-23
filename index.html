@@ -335,7 +335,6 @@
   bottom: 20px;
   right: 20px;
   background-color: #000000;
-  color: #000000;
   border: none;
   border-radius: 50%;
   width: 50px;
@@ -354,6 +353,9 @@
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
 }
 
+#about, #skills, #timeline, #contact, #hobbies {
+  scroll-margin-top: 200px;
+}
   
   </style>
 </head>
@@ -387,6 +389,9 @@
             </li>
             <li class="nav-item">
               <a class="nav-link me-4" href="#timeline">Education</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link me-4" href="#hobbies">Hobbies</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#contact">Contact</a>
@@ -637,6 +642,28 @@ toggle.addEventListener('click', () => {
   document.querySelector('footer').classList.toggle('dark-mode');
   document.querySelectorAll('.contact-form input, .contact-form textarea, .contact-form button').forEach(element => {
     element.classList.toggle('dark-mode');
+  });
+});
+
+// Smooth Scrolling with Offset
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    const offset = 80; // Adjust this value to match your navbar height
+    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
+
+    window.scrollTo({
+      top: targetPosition,
+      behavior: 'smooth'
+    });
+
+    // Collapse the navbar on mobile after clicking a link
+    const navbarCollapse = document.querySelector('.navbar-collapse');
+    if (navbarCollapse.classList.contains('show')) {
+      const bootstrapCollapse = new bootstrap.Collapse(navbarCollapse);
+      bootstrapCollapse.hide();
+    }
   });
 });
 
