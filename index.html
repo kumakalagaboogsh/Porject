@@ -60,7 +60,6 @@
     }
 
     .hero {
-      background: url('https://www.mariowiki.com/images/3/32/SMB1_Background.png') no-repeat center/cover;
       height: 400px;
       color: white;
       display: flex;
@@ -386,7 +385,175 @@
 #about, #skills, #timeline, #contact, #hobbies {
   scroll-margin-top: 200px;
 }
-  
+
+/* Professional Skills Section Styling */
+.skill-icon {
+  background-color: rgba(0, 0, 0, 0.8);
+  border: 2px solid #ffcc00;
+  border-radius: 10px;
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  color: #ffffff;
+}
+
+.skill-icon i {
+  font-size: 3rem;
+  color: #ffcc00;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.skill-icon p {
+  margin-top: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.skill-icon:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+}
+
+.skill-icon:hover i {
+  color: #e60012;
+}
+
+@keyframes progressAnimation {
+  from {
+    width: 0;
+  }
+  to {
+    width: var(--progress-width);
+  }
+}
+
+/* Circular Progress Bar Styling */
+.circular-progress {
+  position: relative;
+  width: 200px; /* Increase the size of the circle */
+  height: 200px; /* Increase the size of the circle */
+  margin: 0 auto;
+}
+
+.circular-progress svg {
+  position: relative;
+  width: 200px; /* Match the size of the container */
+  height: 200px; /* Match the size of the container */
+  transform: rotate(-90deg);
+}
+
+.circular-progress circle {
+  fill: none;
+  stroke-width: 15; /* Adjust stroke width for better visibility */
+  stroke: #222; /* Background stroke color */
+  r: 90; /* Adjust radius for the larger circle */
+  cx: 100; /* Adjust center x-coordinate */
+  cy: 100; /* Adjust center y-coordinate */
+}
+
+.circular-progress circle.progress {
+  stroke: #ffcc00; /* Progress stroke color */
+  stroke-dasharray: 565; /* Circumference of the circle (2 * π * r) */
+  stroke-dashoffset: 565; /* Start with no progress */
+  transition: stroke-dashoffset 3s ease-in-out;
+}
+
+.circular-progress .progress-value {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center-align text */
+  justify-content: center; /* Center-align text vertically */
+}
+
+.circular-progress .progress-value h4 {
+  font-size: 1.5rem; /* Adjust font size for percentage */
+  margin: 0;
+}
+
+.circular-progress .progress-value p {
+  font-size: 1.2rem; /* Adjust font size for skill name */
+  margin: 0;
+  color: #ccc;
+}
+
+.circular-progress.cplusplus circle.progress {
+  stroke: #0078d7; /* Blue for C++ */
+}
+
+.circular-progress.python circle.progress {
+  stroke: #ffd43b; /* Yellow for Python */
+}
+
+.circular-progress.html circle.progress {
+  stroke: #e34c26; /* Orange for HTML */
+}
+
+.circular-progress.css circle.progress {
+  stroke: #264de4; /* Blue for CSS */
+}
+
+.circular-progress.sql circle.progress {
+  stroke: #f29111; /* Orange for SQL */
+}
+
+.circular-progress.php circle.progress {
+  stroke: #8993be; /* Purple for PHP */
+}
+
+.circular-progress.java circle.progress {
+  stroke: #5382a1; /* Blue for Java */
+}
+
+.circular-progress.git circle.progress {
+  stroke: #f05032; /* Red for Git */
+}
+
+.circular-progress:hover {
+  box-shadow: 0 0 15px rgba(255, 204, 0, 0.5), /* Outer glow */
+              0 0 30px rgba(255, 204, 0, 0.3), /* Middle glow */
+              0 0 45px rgba(255, 204, 0, 0.1); /* Inner glow */
+  border-radius: 50%; /* Ensure the shadow is circular */
+  transform: scale(1.1); /* Slight zoom effect */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+}
+
+.circular-progress.cplusplus:hover {
+  box-shadow: 0 0 15px #0078d7, 0 0 30px #0078d7, 0 0 45px #0078d7; /* Blue for C++ */
+}
+
+.circular-progress.python:hover {
+  box-shadow: 0 0 15px #ffd43b, 0 0 30px #ffd43b, 0 0 45px #ffd43b; /* Yellow for Python */
+}
+
+.circular-progress.html:hover {
+  box-shadow: 0 0 15px #e34c26, 0 0 30px #e34c26, 0 0 45px #e34c26; /* Orange for HTML */
+}
+
+.circular-progress.css:hover {
+  box-shadow: 0 0 15px #264de4, 0 0 30px #264de4, 0 0 45px #264de4; /* Blue for CSS */
+}
+
+.circular-progress.sql:hover {
+  box-shadow: 0 0 15px #f29111, 0 0 30px #f29111, 0 0 45px #f29111; /* Orange for SQL */
+}
+
+.circular-progress.php:hover {
+  box-shadow: 0 0 15px #8993be, 0 0 30px #8993be, 0 0 45px #8993be; /* Purple for PHP */
+}
+
+.circular-progress.java:hover {
+  box-shadow: 0 0 15px #5382a1, 0 0 30px #5382a1, 0 0 45px #5382a1; /* Blue for Java */
+}
+
+.circular-progress.git:hover {
+  box-shadow: 0 0 15px #f05032, 0 0 30px #f05032, 0 0 45px #f05032; /* Red for Git */
+}
   </style>
 </head>
 
@@ -524,6 +691,117 @@
   </div>
 </div>
 
+<!-- Professional Skills Section -->
+<div id="professional-skills" class="skills container mt-5">
+  <h2 class="text-center mb-4">Professional <span style="color: #ffcc00;">Skills</span></h2>
+  <div class="row text-center">
+    <!-- Skill 1 -->
+    <div class="col-md-3 col-sm-6 mb-4">
+      <div class="circular-progress cplusplus">
+        <svg>
+          <circle cx="50" cy="50" r="45"></circle>
+          <circle cx="50" cy="50" r="45" class="progress"></circle>
+        </svg>
+        <div class="progress-value">
+          <h4>80%</h4>
+          <p>C++</p>
+        </div>
+      </div>
+    </div>
+    <!-- Skill 2 -->
+    <div class="col-md-3 col-sm-6 mb-4">
+      <div class="circular-progress python">
+        <svg>
+          <circle cx="50" cy="50" r="45"></circle>
+          <circle cx="50" cy="50" r="45" class="progress"></circle>
+        </svg>
+        <div class="progress-value">
+          <h4>85%</h4>
+          <p>Python</p>
+        </div>
+      </div>
+    </div>
+    <!-- Skill 3 -->
+    <div class="col-md-3 col-sm-6 mb-4">
+      <div class="circular-progress">
+        <svg>
+          <circle cx="50" cy="50" r="45"></circle>
+          <circle cx="50" cy="50" r="45" class="progress"></circle>
+        </svg>
+        <div class="progress-value html">
+          <h4>90%</h4>
+          <p>HTML</p>
+        </div>
+      </div>
+    </div>
+    <!-- Skill 4 -->
+    <div class="col-md-3 col-sm-6 mb-4">
+      <div class="circular-progress css">
+        <svg>
+          <circle cx="50" cy="50" r="45"></circle>
+          <circle cx="50" cy="50" r="45" class="progress"></circle>
+        </svg>
+        <div class="progress-value">
+          <h4>85%</h4>
+          <p>CSS</p>
+        </div>
+      </div>
+    </div>
+    <!-- Skill 5 -->
+    <div class="col-md-3 col-sm-6 mb-4">
+      <div class="circular-progress sql">
+        <svg>
+          <circle cx="50" cy="50" r="45"></circle>
+          <circle cx="50" cy="50" r="45" class="progress"></circle>
+        </svg>
+        <div class="progress-value">
+          <h4>75%</h4>
+          <p>SQL</p>
+        </div>
+      </div>
+    </div>
+    <!-- Skill 6 -->
+    <div class="col-md-3 col-sm-6 mb-4">
+      <div class="circular-progress php">
+        <svg>
+          <circle cx="50" cy="50" r="45"></circle>
+          <circle cx="50" cy="50" r="45" class="progress"></circle>
+        </svg>
+        <div class="progress-value">
+          <h4>70%</h4>
+          <p>PHP</p>
+        </div>
+      </div>
+    </div>
+    <!-- Skill 7 -->
+    <div class="col-md-3 col-sm-6 mb-4">
+      <div class="circular-progress java">
+        <svg>
+          <circle cx="50" cy="50" r="45"></circle>
+          <circle cx="50" cy="50" r="45" class="progress"></circle>
+        </svg>
+        <div class="progress-value">
+          <h4>80%</h4>
+          <p>Java</p>
+        </div>
+      </div>
+    </div>
+    <!-- Skill 8 -->
+    <div class="col-md-3 col-sm-6 mb-4">
+      <div class="circular-progress git">
+        <svg>
+          <circle cx="50" cy="50" r="45"></circle>
+          <circle cx="50" cy="50" r="45" class="progress"></circle>
+        </svg>
+        <div class="progress-value">
+          <h4>75%</h4>
+          <p>Git</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- Education Section -->
 <div id="timeline" class="education container mt-5">
   <h2 class="text-center mb-4">Education</h2>
@@ -532,8 +810,8 @@
     <div class="col-md-6 col-lg-3 mb-4">
       <div class="flip-card">
         <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <i class="bi bi-mortarboard fs-1 text-warning mb-3"></i>
+          <div class="flip-card-front text-center">
+            <img src="./images/ENYU.png" alt="College" class="img-fluid mb-3" style="border-radius: 10px; max-height: 150px;">
             <h5 class="card-title">College</h5>
           </div>
           <div class="flip-card-back">
@@ -546,9 +824,9 @@
     <div class="col-md-6 col-lg-3 mb-4">
       <div class="flip-card">
         <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <i class="bi bi-book fs-1 text-warning mb-3"></i>
-            <h5 class="card-title">Senior High School</h5>
+          <div class="flip-card-front text-center">
+            <img src="./images/BCAS.png" alt="Senior High School" class="img-fluid mb-3" style="border-radius: 10px; max-height: 150px;">
+            <h5 class="card-title">Senior High </h5>
           </div>
           <div class="flip-card-back">
             <p class="card-text">Batangas College of Arts and Sciences Inc., 2021 - 2023</p>
@@ -560,8 +838,8 @@
     <div class="col-md-6 col-lg-3 mb-4">
       <div class="flip-card">
         <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <i class="bi bi-journal fs-1 text-warning mb-3"></i>
+          <div class="flip-card-front text-center">
+            <img src="./images/BCAS.png" alt="High School" class="img-fluid mb-3" style="border-radius: 10px; max-height: 150px;">
             <h5 class="card-title">High School</h5>
           </div>
           <div class="flip-card-back">
@@ -570,20 +848,20 @@
         </div>
       </div>
     </div>
-    <!-- Card 4 -->
-    <div class="col-md-6 col-lg-3 mb-4">
-      <div class="flip-card">
-        <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <i class="bi bi-pencil fs-1 text-warning mb-3"></i>
-            <h5 class="card-title">Elementary School</h5>
-          </div>
-          <div class="flip-card-back">
-            <p class="card-text">Bagongpook Elementary School,2012-2017</p>
-          </div>
-        </div>
+<!-- Card 4 -->
+<div class="col-md-6 col-lg-3 mb-4">
+  <div class="flip-card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front text-center">
+        <img src="./images/bpesafa.jpg" alt="Elementary School" class="img-fluid mb-3" style="border-radius: 10px; max-height: 150px; width: auto; ">
+        <h5 class="card-title">Elementary</h5>
+      </div>
+      <div class="flip-card-back">
+        <p class="card-text">Bagongpook Elementary School, 2012 - 2017</p>
       </div>
     </div>
+  </div>
+</div>
   </div>
 </div>
 
@@ -624,9 +902,14 @@
   </div>
 </div>
 
+
+
+
+
+
   <!-- Contact Section -->
   <div id="contact" class="contact container">
-    <h2>Contact My Girlfriend</h2>
+    <h2>Contact Me</h2>
     <form class="contact-form">
       <div class="mb-3">
         <label for="name" class="form-label">Name</label>
@@ -757,6 +1040,29 @@ musicControl.addEventListener('click', () => {
   isPlaying = !isPlaying;
 });
 
+// Trigger circular progress bar animation on scroll
+const circularProgressBars = document.querySelectorAll('.circular-progress');
+
+const circularObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const progressBar = entry.target.querySelector('.progress');
+        const progressValue = entry.target.querySelector('.progress-value h4').innerText.replace('%', '');
+        const offset = 283 - (283 * progressValue) / 100; // Calculate stroke-dashoffset
+        progressBar.style.strokeDashoffset = offset;
+      }
+    });
+  },
+  {
+    threshold: 0.5, // Trigger when 50% of the element is visible
+  }
+);
+
+circularProgressBars.forEach((bar) => {
+  circularObserver.observe(bar);
+});
+
     // Smooth Scrolling
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
@@ -771,6 +1077,8 @@ musicControl.addEventListener('click', () => {
   duration: 1000, // Animation duration in milliseconds
   once: true, // Whether animation should happen only once
 });
+
+
 
   </script>
 </body>
